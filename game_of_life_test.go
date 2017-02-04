@@ -4,7 +4,12 @@ import "testing"
 import "fmt"
 import "time"
 
-func XTestSampleReplaceScreen(t *testing.T) {
+func TestSampleReplaceScreen(t *testing.T) {
+
+	// reen = "\033[01;32m"
+	red := "\033[01;31m"
+	// yello = "\033[01;33m"
+	// reset = "\033[00m"
 
 	fmt.Println()
 	fmt.Println()
@@ -13,7 +18,10 @@ func XTestSampleReplaceScreen(t *testing.T) {
 		fmt.Println()
 		time.Sleep(1000 * time.Millisecond)
 		fmt.Printf("On %d/10 Off: %d", i, i)
-		fmt.Println()
+		fmt.Println(red)
+		row := "4"
+		colums := "3"
+		fmt.Printf("\033["+row+";"+colums+"H")
 		fmt.Printf("On %d/12 Off: %d", i, i)
 	}
 }
